@@ -6,11 +6,11 @@ import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import { useEffect,useState } from "react";
-import environment from "../environment";
 import Footer from"../components/Footer";
+import { APIS } from "../apis";
 
 
-function Home() {
+function Home(props) {
 const [products,setProductas] = useState([])
 const [data , setData] = useState([])
 useEffect(()=>{
@@ -20,7 +20,7 @@ useEffect(()=>{
 
 
 function getProducts() {
-  axios.get(`${environment.api}/products`)
+  axios.get(APIS.PRODUCTS)
     .then((response) => {
       const res = response.data;
       console.log(res);
@@ -60,7 +60,7 @@ function renderCols() {
     return (
   
     <Col md={4} lg={3} key={index}>
-    <ProductCard item={product} reload={getProducts}/>
+    <ProductCard item={product} reload={getProducts} setReloadNavbar={props.setReloadNavbar}/>
     </Col>
      
     )

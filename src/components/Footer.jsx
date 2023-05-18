@@ -49,7 +49,7 @@ const index = () => {
                   Company name :
                 </h6>
                 <p className="fw-bold ms-3">
-                  Ecommerce
+                  Shopify
                 </p>
               </div>
               {/* <!-- Grid column --> */}
@@ -113,13 +113,13 @@ const index = () => {
                 {/* <!-- Links --> */}
                 <h6 className="text-uppercase fw-bold mb-4">Contact :</h6>
                 <p>
-                  <i class="bi bi-person-circle"></i> Venkat Ramana
+                  <i className="bi bi-person-circle"></i> Venkat Ramana
                 </p>
                 <p>
-                  <i class="bi bi-envelope-fill"></i> venkataram@gmail.com
+                  <i className="bi bi-envelope-fill"></i> venkataram@gmail.com
                 </p>
                 <p>
-                  <i class="bi bi-phone"></i> +91 8074747172
+                  <i className="bi bi-phone"></i> +91 8074747172
                 </p>
                 
               </div>

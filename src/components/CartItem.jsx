@@ -1,33 +1,26 @@
 import '../App.css';
 import Card from 'react-bootstrap/Card';
 import PriceTag from './PriceTag';
-import BtnIcon from './BtnIcon';
-function CartItem(props) {
-  function onDelete(productId) {
-     let localData=localStorage.getItem("selectedProducts")
-     if(localData){
-      let filteredCart=JSON.parse(localData).filter((each)=>{
-        return each!==productId
-      })
-      localStorage.setItem("selectedProducts", JSON.stringify(filteredCart));
-      props.reload()
-     }
-  }
- 
+
+
+function CartItem(props) {  
+
   return (
     <>
-      <Card className='mb-4 bg-light shadow mt-5' >
-        <Card.Img className="itemImg" variant="top" src={props.item.image} />
+      <Card className='mb-4 bg-light shadow cart-card'>
+        <Card.Img className="product-card-img" variant="top" src={props.item.image} />
         <Card.Body>
           <Card.Title>{props.item.title}</Card.Title>
-          <Card.Text>
-            {props.item.description}
-          </Card.Text>
+          <Card.Text>{props.item.description}</Card.Text>
           <PriceTag price={props.item.price} />
-          <div className='btn-group w-100 '>
-            <BtnIcon icon='delete' onClick={() => (onDelete(props.item._id))} />
+          <div className='btn-group w-100'>
+            <button
+              className="btn btn-danger mt-2"
+              onClick={props.onDelete}
+            >
+              <i className="bi bi-trash-fill fs-5 d-flex justify-content-center"></i>
+            </button>
           </div>
-
         </Card.Body>
       </Card>
     </>
